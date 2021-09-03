@@ -1,0 +1,8 @@
+<div>
+  <mat-toolbar [ngStyle]="{ 'border-radius.px': 3, 'color': 'white', 'background-color': info.backgroundColor }">
+     <h5>{{languageService.language == 'SR' ? info.viSr : info.viEn}}</h5>
+  </mat-toolbar><br>
+  <div style="color: rgb(118, 118, 118); font-size: 12px;">
+      {{languageService.language == 'SR' ? info.informationSr : info.informationEn}}
+  </div>
+</div>

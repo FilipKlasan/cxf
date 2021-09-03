@@ -1,0 +1,102 @@
+#cnt {
+  margin-top: 100px;
+  text-align: center;
+}
+
+#f {
+    display: inline-block;
+    width: 90%;
+    padding: 40px;
+    text-align: left;
+}
+
+#f, .dgm {
+    border-top: 30px solid rgb(30, 30, 30);
+    border-right: 30px solid white;
+    border-bottom: 30px solid rgb(233, 29, 99);
+    border-left: 30px solid white;
+}
+
+#f1 {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+h5 {
+    color: rgb(30, 30, 30);
+}
+
+#logo1, #logo2 {
+    text-align: right;
+}
+
+#logo2 {
+    display: none;
+}
+
+.mat-form-field {
+    width: 100%;
+    font-size: 12px;
+}
+
+.dgm {
+    display: inline-block;
+    margin: 0 30px 30px 30px;
+    width: 230px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    color: rgb(60, 60, 60);
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.dgm:hover {
+    width: 150px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+@media(max-width: 940px) {
+
+    #cnt {
+        margin-top: 30px;
+    }
+  
+}
+
+@media(max-width: 680px) {
+
+    .dgm {
+        width: 90%;
+        margin: 0 0 30px 0;
+    }
+
+    .dgm:hover {
+        width: 80%;
+    }
+
+}
+
+@media(max-width: 424px) {
+
+    h5 {
+      font-size: 15px;
+    }
+  
+    #logo1 {
+      display: none;
+    }
+  
+    #logo2 {
+      display: block;
+    }
+  
+}
+
+@media(max-width: 319px) {
+  
+    #f {
+       padding: 40px 20px;
+    }
+
+}

@@ -1,0 +1,86 @@
+<div id="f">
+  <div id="f1">
+      <div style="text-align: left; padding-top: 8px;">
+       <div id="f2">
+          <img id="logo1" src="../../../assets/50.png" alt="izrada sajtova">
+          <img id="logo2" src="../../../assets/80.png" alt="izrada sajtova">
+          <div>
+              <mat-radio-group aria-labelledby="example-radio-group-label" [(ngModel)]="language.language">
+                  <mat-radio-button style="display: block;" *ngFor="let languageFF of languages" [value]="languageFF">
+                     <span id="languages">{{languageFF}}</span>
+                  </mat-radio-button>
+              </mat-radio-group>
+          </div>
+       </div>
+      </div>
+      <div style="text-align: right; padding-bottom: 5px;">
+              <div matTooltip="{{language.language == 'SR' ? 'Uplata' : 'Payment'}}" id="cena1" (click)="pay()">{{data.total}}<span id="nulaF">.00</span>€</div>
+      </div>
+  </div>
+</div>
+<div id="textDivision">
+  <div *ngFor="let el of h" class="text">
+    <mat-icon>{{el.ikonica}}</mat-icon><br>
+    <div class="numbers">{{el.azc}}</div>
+    <div class="text5">{{language.language == 'SR' ? el.fSr : el.fEn}}</div>
+  </div>
+</div><br><br><br><br>
+<div id="w">
+    <div style="display: inline-block;">
+        <h1 id="w1">{{language.language == 'SR' ? data.podaci.glavni : data.podaci.main}}</h1>
+    </div><br><br>
+      <div style="display: inline-block;">
+      <div id="w2">{{language.language == 'SR' ? data.podaci.kalkulator : data.podaci.calculator}}</div>
+    </div><br><br>
+
+    <div style="display: inline-block; padding: 2px; border: 1px solid rgb(210, 210, 210);">
+        <div id="ekran"></div>
+        <div *ngFor="let r of arr; let i = index;" class="fx">
+          <div *ngFor="let k of r; let j = index;" [class]="arr[i][j]"></div>
+        </div>
+    </div>
+</div><br><br><br><br>
+<div id="fff">
+<div id="x">
+      <div *ngFor="let el of data.elements;" [ngClass]="el.cekiran? 'text3': 'text2'" (click)="cekiranje(el)">
+          <mat-icon>{{el.ikonica}}</mat-icon><br>
+          <div class="text4">{{language.language == 'SR' ? el.paket: el.package}}</div>
+          <div class="numbers">{{el.counter}}<span class="nula">.00</span>€</div>
+      </div>
+</div>    
+</div><br><br>
+<div style="text-align: center;">
+  <div id="cnt">
+    <h5 id="cf">{{language.language == 'SR' ? 'Kontaktirajte nas' : 'Contact us'}}</h5><br>
+    <form #formVal="ngForm">
+      <mat-form-field>
+        <input placeholder="{{language.language == 'SR' ? 'Vaše ime' : 'Your name'}}" matInput maxlength="70" #nameF="ngModel" name="n" [pattern]="namePattern" [(ngModel)]="name">
+        <mat-hint *ngIf="nameF.touched && nameF.invalid" style="color:red;">{{language.language == 'SR' ? 'Polje mora biti validno' : 'Field must be valid!'}}</mat-hint>
+      </mat-form-field><br>
+      <mat-form-field>
+        <input placeholder="{{language.language == 'SR' ? 'Vaš broj telefona' : 'Your phone number'}}" matInput maxlength="70" #phoneNumberF="ngModel" name="ph" [pattern]="phonePattern" [(ngModel)]="phoneNumber" required>
+        <mat-hint *ngIf="phoneNumberF.touched && phoneNumberF.invalid" style="color:red;">{{language.language == 'SR' ? 'Polje mora biti validno' : 'Field must be valid!'}}</mat-hint>
+     </mat-form-field><br>
+     <mat-form-field>
+        <input placeholder="{{language.language == 'SR' ? 'Vaš e-mail' : 'Your e-mail'}}" matInput maxlength="70" #emailF="ngModel" name="e" [(ngModel)]="email" email>
+        <mat-hint *ngIf="emailF.touched && emailF.invalid" style="color:red;">{{language.language == 'SR' ? 'Polje mora biti validno' : 'Field must be valid!'}}</mat-hint>
+     </mat-form-field>
+    </form><br>
+    <textarea id="tArea" maxlength="5000" placeholder="{{language.language == 'SR' ? 'Postavite pitanje' : 'Ask a question'}}" [(ngModel)]="comment"></textarea><br>
+    <button mat-raised-button id="dugme" (click)="send(phoneNumberF.invalid)">
+      {{language.language == 'SR' ? 'Pošalji' : 'Send'}}
+    </button>
+    </div>  
+</div><br><br><br><br>
+<div id="tb">
+    <div id="g">
+      <div id="contact">
+        <span id="ct">{{language.language == 'SR' ? data.podaci.kontaktTekst : data.podaci.contactText}}</span><br>
+        {{data.podaci.kontakt}}
+      </div>
+      <div id="rg">
+        {{data.t}}
+      </div>
+    </div>
+</div>
+<router-outlet></router-outlet>

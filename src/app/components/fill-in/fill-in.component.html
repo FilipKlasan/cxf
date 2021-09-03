@@ -1,0 +1,34 @@
+<div id="cnt">
+ <div id="f">
+    <div id="f1">
+        <h5>{{language.language == 'SR' ? 'Popunite formu' : 'Fill in the form'}}</h5>
+        <div id="logo1"><img src="../../../assets/50.png"></div>
+        <div id="logo2"><img src="../../../assets/80.png"></div>
+    </div><br>
+    <form #formVal="ngForm">
+      <mat-form-field>
+        <input placeholder="{{language.language == 'SR' ? 'Vaše ime' : 'Your name'}}" matInput maxlength="70" #nameF="ngModel" name="n" [pattern]="namePattern" [(ngModel)]="data.name">
+        <mat-hint *ngIf="nameF.touched && nameF.invalid" style="color:red;">{{language.language == 'SR' ? 'Polje mora biti validno' : 'Field must be valid!'}}</mat-hint>
+      </mat-form-field><br>
+      <mat-form-field>
+        <input placeholder="{{language.language == 'SR' ? 'Vaš broj telefona' : 'Your phone number'}}" matInput maxlength="70" #phoneNumberF="ngModel" name="ph" [pattern]="phonePattern" [(ngModel)]="data.phoneNumber" required>
+        <mat-hint *ngIf="phoneNumberF.touched && phoneNumberF.invalid" style="color:red;">{{language.language == 'SR' ? 'Polje mora biti validno' : 'Field must be valid!'}}</mat-hint>
+     </mat-form-field><br>
+     <mat-form-field>
+        <input placeholder="{{language.language == 'SR' ? 'Vaš e-mail' : 'Your e-mail'}}" matInput maxlength="70" #emailF="ngModel" name="e" [(ngModel)]="data.email" email>
+        <mat-hint *ngIf="emailF.touched && emailF.invalid" style="color:red;">{{language.language == 'SR' ? 'Polje mora biti validno' : 'Field must be valid!'}}</mat-hint>
+     </mat-form-field>
+    </form>
+ </div>
+</div><br><br>
+<div style="text-align: center;">
+    <div class="dgm" (click)="send(phoneNumberF.invalid)">
+       <mat-icon style="color: rgb(30, 30, 30);">arrow_forward_ios</mat-icon><br><br>
+       <h5>{{language.language == 'SR' ? 'Dalje' : 'Next'}}</h5>
+    </div>
+    <div class="dgm" (click)="back()">
+        <mat-icon style="color: rgb(30, 30, 30);">arrow_back_ios</mat-icon><br><br>
+        <h5>{{language.language == 'SR' ? 'Nazad' : 'Back'}}</h5>
+    </div>
+</div>
+<router-outlet></router-outlet>

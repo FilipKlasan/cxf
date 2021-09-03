@@ -1,0 +1,31 @@
+<div id="cnt">
+ <div id="f">
+  <div id="g">
+    <div id="logo1"><img src="../../../assets/50.png"></div>
+    <div id="logo2"><img src="../../../assets/80.png"></div>
+    <div id="address">
+      {{language.language == 'SR' ? data.podaci.adresa : data.podaci.address}}<br>{{data.podaci.kontakt}}
+    </div>
+</div><br>
+<div *ngFor="let el of niz; let i = index;" [ngClass]="i < 7 ? 'b' : 'bp'">
+  <div class="b1">{{language.language == 'SR'? el.sr : el.en}}</div>
+  <div class="b2">
+      <div *ngIf="i == 0" style="display: inline-block;">
+       <div *ngFor="let element of data.elements" style="text-align: left;">
+        <div *ngIf="element.cekiran">
+          {{language.language == 'SR' ? element.paket : element.package}} - {{element.cena.toFixed(2)}} €
+        </div>
+       </div>
+      </div>
+      <div *ngIf="i == 1">{{(data.total - (data.total / 100 * 20)).toFixed(2)}} €</div>
+      <div *ngIf="i == 2">{{(data.total / 100 * 20).toFixed(2)}} €</div>
+      <div *ngIf="i == 3">{{data.total.toFixed(2)}} €</div>
+      <div *ngIf="i == 4">{{language.language == 'SR' ? data.podaci.btSr : data.podaci.btEn}}</div>
+      <div *ngIf="i == 5">{{data.podaci.banka}}</div>
+      <div *ngIf="i == 6">{{data.podaci.ziroRacun}}</div>
+      <div *ngIf="i == 7">{{data.podaci.pozivNaBroj}}</div>
+  </div>
+</div>
+ </div>
+</div>
+<router-outlet></router-outlet>
